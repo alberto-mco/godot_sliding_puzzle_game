@@ -4,7 +4,7 @@ This is my first game made with godot, it's a sliding puzzle game written in GDS
 The aim of the game is to put in order all the numbers in the grid.
 The correct number order is from left to right and from top to bottom
 
-In the settings screen, you can changes the initial shuffle moves, and the grid size.
+In the settings screen, you can change the initial shuffle moves, and the grid size.
 The grid size can be:
 - 3x3
 - 4x4
@@ -26,5 +26,5 @@ The comments inside the code, and the UI elements are written in spanish.
 ### Game end
 ![game_end](/screenshots/game_end.png)
 
-### Title screen
+### Ranking screen
 ![ranking screen](/screenshots/ranking_screen.png)
