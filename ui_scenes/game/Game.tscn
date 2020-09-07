@@ -1,0 +1,210 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/images/Background.png" type="Texture" id=1]
+[ext_resource path="res://ui_scenes/game/Game.gd" type="Script" id=2]
+[ext_resource path="res://box/Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui_components/hud/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui_components/button/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui_components/groupbox/GroupBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/mkocr.ttf" type="DynamicFontData" id=7]
+
+
+
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "close_effect"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("gbEndGame:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Game" type="Node"]
+pause_mode = 2
+script = ExtResource( 2 )
+Box = ExtResource( 3 )
+
+[node name="Background" type="NinePatchRect" parent="."]
+margin_left = -400.0
+margin_top = -15.0
+margin_right = 957.0
+margin_bottom = 1426.0
+rect_rotation = -25.0
+texture = ExtResource( 1 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+pause_mode = 2
+
+[node name="BoxesContainer" type="Node" parent="."]
+pause_mode = 1
+
+[node name="CenterPosition" type="Position2D" parent="."]
+
+[node name="GameTimer" type="Timer" parent="."]
+pause_mode = 1
+
+[node name="gbEndGame" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -77.0
+margin_right = 179.5
+margin_bottom = 77.0
+Text = "¡Fin de partida!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gbEndGame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 40.0
+margin_right = -5.0
+margin_bottom = -44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblTotalMovements" type="Label" parent="gbEndGame/VBoxContainer"]
+margin_right = 349.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+text = "Movimientos realizados:"
+
+[node name="lblTotalTime" type="Label" parent="gbEndGame/VBoxContainer"]
+margin_top = 22.0
+margin_right = 349.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+text = "Tiempo total:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gbEndGame/VBoxContainer"]
+margin_top = 44.0
+margin_right = 349.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="lblPlayerName" type="Label" parent="gbEndGame/VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 66.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+text = "Jugador:"
+align = 1
+valign = 1
+
+[node name="txtPlayerName" type="TextEdit" parent="gbEndGame/VBoxContainer/HBoxContainer"]
+margin_left = 70.0
+margin_right = 349.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_horizontal = 3
+custom_styles/read_only = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_styles/completion = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/selection_color = Color( 0.670588, 0.670588, 0.670588, 1 )
+custom_colors/caret_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+custom_colors/font_color_selected = Color( 0.670588, 0.670588, 0.670588, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+custom_colors/background_color = Color( 1, 1, 1, 1 )
+custom_colors/word_highlighted_color = Color( 0.670588, 0.670588, 0.670588, 1 )
+text = "<Jugador_1>"
+wrap_enabled = true
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gbEndGame"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -40.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnSave" parent="gbEndGame/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 249.0
+margin_right = 349.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 35 )
+Text = "Guardar"
+Disabled = false
+
+[node name="gbEndGame_Animations" type="AnimationPlayer" parent="."]
+anims/close_effect = SubResource( 7 )
+
+[node name="btnGotToMainMenu" parent="." instance=ExtResource( 5 )]
+pause_mode = 1
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -43.0
+margin_right = 147.0
+margin_bottom = -5.0
+Text = "Volver al menú"
+Disabled = false
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="CloseButtonClicked" from="gbEndGame" to="." method="_on_gbEndGame_CloseButtonClicked"]
+[connection signal="Clicked" from="gbEndGame/HBoxContainer/btnSave" to="." method="_on_btnSaveResults_Clicked"]
+[connection signal="Clicked" from="btnGotToMainMenu" to="." method="_on_btnGotToMainMenu_Clicked"]

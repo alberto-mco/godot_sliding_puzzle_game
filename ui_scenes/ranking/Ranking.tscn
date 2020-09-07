@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/images/Background.png" type="Texture" id=1]
+[ext_resource path="res://ui_scenes/ranking/Ranking.gd" type="Script" id=2]
+[ext_resource path="res://ui_components/button/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui_components/groupbox/GroupBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/mkocr.ttf" type="DynamicFontData" id=5]
+
+
+
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Ranking" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -400.0
+margin_top = -15.0
+margin_right = 973.0
+margin_bottom = 1383.0
+rect_rotation = -25.0
+texture = ExtResource( 1 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gbRanking_3x3" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 974.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+Text = "Clasificaciones 3x3"
+ShowCloseButton = false
+
+[node name="il_3x3" type="ItemList" parent="VBoxContainer/gbRanking_3x3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 40.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+custom_styles/selected_focus = SubResource( 3 )
+custom_styles/bg_focus = SubResource( 4 )
+custom_styles/selected = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/guide_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+max_text_lines = 2
+max_columns = 4
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gbRanking_4x4" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 173.0
+margin_right = 974.0
+margin_bottom = 342.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+Text = "Clasificaciones 4x4"
+ShowCloseButton = false
+
+[node name="il_4x4" type="ItemList" parent="VBoxContainer/gbRanking_4x4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 40.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+custom_styles/selected_focus = SubResource( 3 )
+custom_styles/bg_focus = SubResource( 4 )
+custom_styles/selected = SubResource( 5 )
+custom_styles/bg = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/guide_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+max_columns = 4
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gbRanking_5x5" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 346.0
+margin_right = 974.0
+margin_bottom = 515.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+Text = "Clasificaciones 5x5"
+ShowCloseButton = false
+
+[node name="il_5x5" type="ItemList" parent="VBoxContainer/gbRanking_5x5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 40.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+custom_styles/selected_focus = SubResource( 3 )
+custom_styles/bg_focus = SubResource( 4 )
+custom_styles/selected = SubResource( 5 )
+custom_styles/bg = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/guide_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.435294, 0.580392, 1 )
+max_columns = 4
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnGoToMainMenu" parent="." instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -41.0
+margin_right = 147.0
+margin_bottom = -5.0
+Text = "Volver al menú"
+Disabled = false
+[connection signal="Clicked" from="btnGoToMainMenu" to="." method="_on_btnGoToMainMenu_Clicked"]

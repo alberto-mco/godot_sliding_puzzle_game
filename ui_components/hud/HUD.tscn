@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/mkocr.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/images/HUD_Background.png" type="Texture" id=2]
+[ext_resource path="res://ui_components/hud/HUD.gd" type="Script" id=3]
+
+
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+outline_size = 4
+outline_color = Color( 0.0862745, 0.431373, 0.576471, 1 )
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblMoves" type="Label" parent="TextureRect/HBoxContainer"]
+margin_top = 4.0
+margin_right = 139.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "Movimientos: 0"
+valign = 1
+
+[node name="lblGameTime" type="Label" parent="TextureRect/HBoxContainer"]
+margin_left = 143.0
+margin_top = 4.0
+margin_right = 490.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Tiempo: 00:00"
+align = 2
+valign = 1
+
+[node name="lblMessage" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/Background.png" type="Texture" id=1]
+[ext_resource path="res://ui_components/groupbox/GroupBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui_components/button/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui_scenes/main/Main.gd" type="Script" id=4]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="."]
+margin_left = -400.0
+margin_top = -15.0
+margin_right = 944.0
+margin_bottom = 1297.0
+rect_rotation = -25.0
+texture = ExtResource( 1 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gbMainMenu" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.5
+margin_top = -158.487
+margin_right = 165.5
+margin_bottom = 158.487
+Text = "Sliding Puzzle"
+ShowCloseButton = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gbMainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 40.0
+margin_right = -50.0
+margin_bottom = -5.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnStartGame" parent="gbMainMenu/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 27.0
+margin_right = 231.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 32, 40 )
+Text = "Iniciar partida"
+
+[node name="btnSettings" parent="gbMainMenu/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 71.0
+margin_right = 231.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 32, 40 )
+Text = "Configuración"
+
+[node name="btnRanking" parent="gbMainMenu/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 115.0
+margin_right = 231.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 32, 40 )
+Text = "Clasificaciones"
+
+[node name="btnAbout" parent="gbMainMenu/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 159.0
+margin_right = 231.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 32, 40 )
+Text = "Créditos"
+
+[node name="btnExitGame" parent="gbMainMenu/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 203.0
+margin_right = 231.0
+margin_bottom = 243.0
+rect_min_size = Vector2( 32, 40 )
+Text = "Salir del juego"
+[connection signal="Clicked" from="gbMainMenu/VBoxContainer/btnStartGame" to="." method="_on_btnStartGame_Clicked"]
+[connection signal="Clicked" from="gbMainMenu/VBoxContainer/btnSettings" to="." method="_on_btnSettings_Clicked"]
+[connection signal="Clicked" from="gbMainMenu/VBoxContainer/btnRanking" to="." method="_on_btnRanking_Clicked"]
+[connection signal="Clicked" from="gbMainMenu/VBoxContainer/btnAbout" to="." method="_on_btnAbout_Clicked"]
+[connection signal="Clicked" from="gbMainMenu/VBoxContainer/btnExitGame" to="." method="_on_btnExitGame_Clicked"]

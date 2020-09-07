@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui_components/groupbox/GroupBox.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/GroupBoxHeader.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/GroupBoxContent.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/mkocr.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/images/CloseDialogButton_Over.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/CloseDialogButton_Normal.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/CloseDialogButton_Pressed.png" type="Texture" id=7]
+
+
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 4 )
+
+[node name="GroupBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+FontSize = 28
+ShowCloseButton = true
+
+[node name="Header" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="lblText" type="Label" parent="Header"]
+anchor_right = 1.0
+margin_top = 2.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnCloseGroupBox" type="TextureButton" parent="Header"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -16.0
+margin_top = -16.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 35.0
+texture = ExtResource( 3 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+[connection signal="pressed" from="Header/btnCloseGroupBox" to="." method="_on_btnCloseGroupBox_pressed"]
